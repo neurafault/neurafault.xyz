@@ -1,0 +1,23 @@
+---
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/neurafault' },
+  { label: 'X', href: 'https://x.com/neurafault' },
+  { label: 'RSS', href: '/index.xml' },
+];
+---
+<footer class="border-t border-[var(--color-border)] mt-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8 space-y-4 text-xs text-[var(--color-text-muted)]">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+      <span>&copy; {new Date().getFullYear()} neurafault</span>
+      <div class="flex items-center gap-4">
+        {socials.map(s => (
+          <a href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel={s.href.startsWith('http') ? 'noopener' : undefined}
+             class="hover:text-[var(--color-accent)] transition-colors">{s.label.toLowerCase()}</a>
+        ))}
+      </div>
+    </div>
+    <div class="text-[var(--color-text-muted)] opacity-50">
+      Built by <a href="https://hyrahmo.com" class="hover:text-[var(--color-accent)] transition-colors">@hyrahmo</a>
+    </div>
+  </div>
+</footer>

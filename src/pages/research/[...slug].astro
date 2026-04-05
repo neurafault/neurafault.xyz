@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import CopyLink from '../../components/CopyLink.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('research', ({ data }) => !data.draft);
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const postUrl = new URL(`/research/${post.id}/`, 'https://neurafault.xyz');
+---
+<Base title={post.data.title} description={post.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "datePublished": post.data.pubDate.toISOString(),
+    "dateModified": (post.data.updatedDate || post.data.pubDate).toISOString(),
+    "url": postUrl.href,
+    "author": { "@type": "Organization", "name": "Neurafault", "url": "https://neurafault.xyz" },
+    "publisher": { "@type": "Organization", "name": "Neurafault", "url": "https://neurafault.xyz" },
+    "inLanguage": "en",
+    "keywords": post.data.tags.join(', '),
+  })} />
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <header data-animate class="mb-10">
+      <div class="flex items-center gap-3 mb-3">
+        <time class="text-xs text-[var(--color-text-muted)]">{post.data.pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+        {post.data.severity && (
+          <span class:list={[
+            "text-xs px-1.5 py-0.5 rounded",
+            post.data.severity === 'critical' && "text-[#ff3333] border border-[#ff3333]/30",
+            post.data.severity === 'high' && "text-[#ff8833] border border-[#ff8833]/30",
+            post.data.severity === 'medium' && "text-[#ffcc00] border border-[#ffcc00]/30",
+            post.data.severity === 'low' && "text-[var(--color-accent)] border border-[var(--color-accent)]/30",
+            post.data.severity === 'info' && "text-[var(--color-text-muted)] border border-[var(--color-border)]",
+          ]}>{post.data.severity}</span>
+        )}
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">{post.data.title}</h1>
+      <p class="text-[var(--color-text-secondary)] text-sm">{post.data.description}</p>
+      {post.data.tags.length > 0 && (
+        <div class="flex gap-2 mt-4">
+          {post.data.tags.map(tag => (
+            <span class="text-xs px-2 py-0.5 border border-[var(--color-border)] rounded text-[var(--color-text-muted)]">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+    <div data-animate data-animate-delay="100" class="prose max-w-none">
+      <Content />
+    </div>
+    <CopyLink />
+    <div class="mt-6 pt-6 border-t border-[var(--color-border)]">
+      <a href="/research/" class="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">← all research</a>
+    </div>
+  </article>
+</Base>

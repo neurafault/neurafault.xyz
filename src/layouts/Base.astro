@@ -1,0 +1,120 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const defaultDesc = 'Independent AI Security Research Lab. Breaking AI before it breaks you.';
+const desc = description || defaultDesc;
+const fullTitle = title === 'Neurafault' ? title : `${title} — Neurafault`;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={desc} />
+  <meta name="author" content="Neurafault" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="canonical" href={canonicalURL.href} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Neurafault RSS" href="/index.xml" />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Neurafault",
+    "url": "https://neurafault.xyz",
+    "description": defaultDesc,
+    "author": {
+      "@type": "Person",
+      "name": "Dima",
+      "alternateName": "hyrahmo",
+      "url": "https://hyrahmo.com",
+      "sameAs": [
+        "https://github.com/neurafault",
+        "https://x.com/neurafault",
+      ]
+    }
+  })} />
+
+  {path !== '/' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://neurafault.xyz/" },
+        { "@type": "ListItem", "position": 2, "name": title, "item": canonicalURL.href }
+      ]
+    })} />
+  )}
+
+  <title>{fullTitle}</title>
+</head>
+<body class="font-mono leading-relaxed">
+  <Header />
+
+  <main class="pt-14">
+    <slot />
+  </main>
+
+  <Footer />
+
+  <script is:inline>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    burger?.addEventListener('click', () => {
+      const open = !mobileMenu.classList.contains('flex');
+      mobileMenu.classList.toggle('hidden', !open);
+      mobileMenu.classList.toggle('flex', open);
+      burger.querySelector('.burger-open').classList.toggle('hidden', open);
+      burger.querySelector('.burger-close').classList.toggle('hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); document.body.style.overflow = '';
+    }));
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 8;
+      header.style.backdropFilter = scrolled ? 'blur(12px) saturate(180%)' : 'none';
+      header.style.background = scrolled ? 'var(--color-bg-alpha)' : 'transparent';
+      header.style.borderBottom = `1px solid ${scrolled ? 'var(--color-border)' : 'transparent'}`;
+    }, { passive: true });
+
+    // Scroll animations
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      const d = el.getAttribute('data-animate-delay');
+      if (d) el.style.transitionDelay = d + 'ms';
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

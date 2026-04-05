@@ -1,0 +1,52 @@
+---
+const path = Astro.url.pathname;
+
+const nav = [
+  { href: '/', label: 'index' },
+  { href: '/research/', label: 'research' },
+  { href: '/tools/', label: 'tools' },
+  { href: 'https://docs.neurafault.xyz', label: 'docs', external: true },
+  { href: '/about/', label: 'about' },
+];
+---
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="/" class="text-[var(--color-accent)] font-bold tracking-tight">
+      neurafault<span class="cursor-blink">_</span>
+    </a>
+
+    {/* Desktop */}
+    <nav class="hidden md:flex items-center gap-5 text-sm">
+      {nav.map(n => (
+        <a
+          href={n.href}
+          class:list={[
+            "text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors",
+            !n.external && path.startsWith(n.href) && (n.href === '/' ? path === '/' : true) && "text-[var(--color-accent)]",
+          ]}
+          {...(n.external ? { target: "_blank", rel: "noopener" } : {})}
+        >
+          {n.label}{n.external ? ' ↗' : ''}
+        </a>
+      ))}
+    </nav>
+
+    {/* Mobile */}
+    <button id="burger" aria-label="Menu" class="md:hidden p-1 text-[var(--color-text)] cursor-pointer">
+      <svg class="w-5 h-5 burger-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      <svg class="w-5 h-5 burger-close hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden flex-col px-4 sm:px-6 pb-4 border-t border-[var(--color-border)] bg-[var(--color-bg)] md:hidden">
+    {nav.map(n => (
+      <a
+        href={n.href}
+        class="py-3 text-sm text-[var(--color-text-secondary)] border-b border-[var(--color-border)] last:border-b-0 hover:text-[var(--color-accent)] transition-colors"
+        {...(n.external ? { target: "_blank", rel: "noopener" } : {})}
+      >
+        <span class="text-[var(--color-accent)] mr-2">$</span>{n.label}{n.external ? ' ↗' : ''}
+      </a>
+    ))}
+  </div>
+</header>
