@@ -17,7 +17,7 @@ const posts = (await getCollection('research', ({ data }) => !data.draft))
         Breaking AI before<br class="hidden sm:block"/> it breaks you.
       </h1>
       <p data-animate data-animate-delay="200" class="text-[var(--color-text-secondary)] max-w-md mb-8 text-sm">
-        Independent AI Security Research Lab. We find and expose vulnerabilities in LLMs, agents, and AI systems.
+        Independent AI Security Research Lab. Pentesting, vulnerability research, and offensive security across AI and traditional systems.
       </p>
       <div data-animate data-animate-delay="300" class="flex gap-3">
         <a href="/research/" class="px-4 py-2 rounded text-sm font-medium hover:opacity-90 transition-all hover:-translate-y-0.5" style="background:var(--color-accent);color:var(--color-bg)">research</a>
@@ -31,9 +31,9 @@ const posts = (await getCollection('research', ({ data }) => !data.draft))
   <section class="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
       {[
-        { t: 'Offense', d: 'Break AI systems.' },
+        { t: 'Pentesting', d: 'Break AI & web systems.' },
         { t: 'Research', d: 'Document findings.' },
-        { t: 'Tools', d: 'Open-source.' },
+        { t: 'Tools', d: 'Open-source security tools.' },
       ].map((c, i) => (
         <div data-animate data-animate-delay={i * 80} class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded hover:border-[var(--color-text-muted)] transition-all hover:-translate-y-0.5">
           <h3 class="font-semibold mb-1 text-[var(--color-accent)] text-sm">{c.t}</h3>
@@ -50,8 +50,8 @@ const posts = (await getCollection('research', ({ data }) => !data.draft))
       <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Prompt injection & jailbreaks</p>
       <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>OWASP LLM Top 10 vectors</p>
       <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Agent & tool-use exploitation</p>
-      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Adversarial attacks on ML models</p>
-      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Data extraction & model abuse</p>
+      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Web app & API pentesting</p>
+      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Adversarial ML & data extraction</p>
     </div>
   </section>
 
