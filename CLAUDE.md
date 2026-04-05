@@ -1,7 +1,8 @@
 # Neurafault — AI Security Research Lab
 
 ## What is this
-Independent AI Security Research Lab by [Dima](https://hyrahmo.com). 
+Independent Security Research Lab by [Dima](https://hyrahmo.com).
+Pentesting, AI security, vulnerability research, offensive security.
 Domain: neurafault.xyz | Handle: @neurafault everywhere
 
 ## Tagline
@@ -13,19 +14,26 @@ Domain: neurafault.xyz | Handle: @neurafault everywhere
 - Tone of content: cold, technical, no filler. Like a terminal — black bg, white text, facts only.
 
 ## Tech Stack
-- Astro + Tailwind CSS v4 + Cloudflare Pages
-- Dark theme, monospace font, terminal aesthetic
+- Astro 6 + Tailwind CSS v4 + GitHub Pages
+- Dark theme, monospace font (JetBrains Mono), terminal aesthetic
 - Minimal — no colorful images, just text, code, diagrams
+- Deploy: GitHub Actions → GitHub Pages
 
 ## Site Structure
 ```
-neurafault.xyz/
-├── /                  — landing: who we are, what we do
-├── /research          — writeups and research (main content)
-├── /tools             — open-source tools
-├── /about             — about the project + link to hyrahmo.com
-└── /feed.xml          — RSS
+neurafault.xyz/                    — Astro (landing + research blog)
+├── /                              — who we are, what we do
+├── /research/                     — writeups and research (main content)
+├── /tools/                        — open-source tools
+├── /about/                        — about the project + link to hyrahmo.com
+└── /index.xml                     — RSS
+
+docs.neurafault.xyz/               — Quartz (separate repo, separate deploy)
 ```
+
+## Repos
+- `neurafault/neurafault.xyz` — main site (this repo)
+- `neurafault/docs` — Quartz docs (TBD)
 
 ## Brand Structure
 ```
@@ -41,7 +49,7 @@ HYRAHMO (hyrahmo.com)              — personal brand, the human
 - OWASP LLM Top 10 analysis
 
 ## Mission
-Research and expose vulnerabilities in AI systems — LLMs, agents, multimodal models. 
+Research and expose vulnerabilities in AI systems and beyond — LLMs, agents, multimodal models, web apps, APIs.
 Intersection of: mathematics, programming, AI, cybersecurity, quant thinking.
 
 ## User Context
@@ -49,7 +57,8 @@ Intersection of: mathematics, programming, AI, cybersecurity, quant thinking.
 - Brain/knowledge base: C:/Users/hyrahmo/Documents/cc/
 - Personal site repo: C:/Users/hyrahmo/Documents/hyrahmo_com/
 - Communication: Russian, informal
-- Skill level: building with AI agents (Claude, MCP), Node.js, Astro. New to offensive security.
+- Roles: AI security researcher, pentester, offensive security
+- Skill level: building with AI agents (Claude, MCP), Node.js, Astro. Learning offensive security.
 
 ## Roadmap
 - Phase 0 (months 1-3): Security fundamentals (TryHackMe, PortSwigger, Python for security)
