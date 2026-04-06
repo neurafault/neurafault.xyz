@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://neurafault.xyz',
+  output: 'static',
   integrations: [
     sitemap(),
     mdx(),

@@ -10,9 +10,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const postUrl = new URL(`/research/${post.id}/`, 'https://neurafault.xyz');
 ---
-<Base title={post.data.title} description={post.data.description}>
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  type="article"
+  publishedTime={post.data.pubDate.toISOString()}
+  modifiedTime={(post.data.updatedDate || post.data.pubDate).toISOString()}
+  tags={post.data.tags}
+>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -20,11 +26,15 @@ const postUrl = new URL(`/research/${post.id}/`, 'https://neurafault.xyz');
     "description": post.data.description,
     "datePublished": post.data.pubDate.toISOString(),
     "dateModified": (post.data.updatedDate || post.data.pubDate).toISOString(),
-    "url": postUrl.href,
+    "url": new URL(`/research/${post.id}/`, 'https://neurafault.xyz').href,
     "author": { "@type": "Organization", "name": "Neurafault", "url": "https://neurafault.xyz" },
     "publisher": { "@type": "Organization", "name": "Neurafault", "url": "https://neurafault.xyz" },
     "inLanguage": "en",
     "keywords": post.data.tags.join(', '),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": new URL(`/research/${post.id}/`, 'https://neurafault.xyz').href
+    }
   })} />
   <article class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
     <header data-animate class="mb-10">
@@ -56,7 +66,7 @@ const postUrl = new URL(`/research/${post.id}/`, 'https://neurafault.xyz');
     </div>
     <CopyLink />
     <div class="mt-6 pt-6 border-t border-[var(--color-border)]">
-      <a href="/research/" class="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">← all research</a>
+      <a href="/research/" class="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">&larr; all research</a>
     </div>
   </article>
 </Base>

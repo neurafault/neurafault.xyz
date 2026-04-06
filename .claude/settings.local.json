@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/hyrahmo/Documents/cc/**)",
+      "Bash(npm create:*)",
+      "Read(//c/Users/hyrahmo/Documents/**)",
+      "Bash(cp -r /c/Users/hyrahmo/Documents/neurafault-tmp/* /c/Users/hyrahmo/Documents/neurafault/)",
+      "Bash(cp /c/Users/hyrahmo/Documents/neurafault-tmp/.* /c/Users/hyrahmo/Documents/neurafault/)",
+      "Bash(rm -rf /c/Users/hyrahmo/Documents/neurafault-tmp)",
+      "Bash(git init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx astro:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(ls /c/Users/hyrahmo/Documents/hyrahmo_com/*.toml /c/Users/hyrahmo/Documents/hyrahmo_com/wrangler*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s http://localhost:4321)",
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/research/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/tools/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/about/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/index.xml)",
+      "Bash(curl -s http://127.0.0.1:4321/)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(gh auth:*)",
+      "Bash(gh org:*)",
+      "Bash(gh repo:*)",
+      "Bash(git remote:*)",
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(gh api:*)",
+      "Bash(gh run:*)",
+      "Bash(gh workflow:*)",
+      "WebFetch(domain:neurafault.xyz)",
+      "Read(//c/Users/hyrahmo/AppData/Local/Temp/claude/c--Users-hyrahmo-Documents-neurafault/fda03bff-6f83-4a78-a8ba-929a186de868/tasks/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\hyrahmo\\Documents\\neurafault\\kb\\.git",
+      "C:\\Users\\hyrahmo\\Documents\\neurafault-docs"
+    ]
+  }
+}
