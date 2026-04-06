@@ -8,72 +8,80 @@ const posts = (await getCollection('research', ({ data }) => !data.draft))
   .slice(0, 5);
 ---
 <Base title="Neurafault" description="AI Security Research by @hyrahmo. Vulnerability research, pentesting, and offensive security tools.">
-  {/* Hero with particle network */}
-  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+  {/* ─── Hero ─── */}
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
     <ParticleNetwork />
-    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 py-20 sm:py-32">
-      <p data-animate class="text-[var(--color-accent)] text-sm font-medium mb-4 tracking-wide">Independent Security Research</p>
-      <h1 data-animate data-animate-delay="80" class="text-[clamp(2.25rem,7vw,4rem)] font-bold leading-[1.05] tracking-tight mb-6">
-        Breaking AI<br/>before it breaks you.
+    <div class="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 py-24 sm:py-36">
+      <div data-animate class="inline-block px-3 py-1 rounded-full border border-[var(--color-border)] text-[11px] text-[var(--color-text-muted)] mb-8 backdrop-blur-sm">
+        Independent Security Research
+      </div>
+      <h1 data-animate data-animate-delay="80" class="text-[clamp(2.5rem,8vw,5rem)] font-bold leading-[1.0] tracking-[-0.03em] mb-8">
+        <span class="gradient-text">Breaking AI</span><br/>
+        <span class="text-[var(--color-text)]">before it breaks you.</span>
       </h1>
-      <p data-animate data-animate-delay="160" class="text-[var(--color-text-secondary)] max-w-lg mb-10 text-[15px] leading-relaxed">
+      <p data-animate data-animate-delay="160" class="text-[var(--color-text-secondary)] max-w-xl mb-12 text-[15px] leading-[1.8]">
         I research vulnerabilities in AI systems — LLMs, agents, multimodal models.
         Pentesting, adversarial ML, and open-source security tools.
       </p>
-      <div data-animate data-animate-delay="240" class="flex flex-wrap gap-3">
-        <a href="/research/" class="px-5 py-2.5 rounded-lg text-sm font-medium transition-all hover:shadow-[0_0_20px_rgba(74,222,128,0.15)]" style="background:var(--color-accent);color:var(--color-bg)">Read Research</a>
-        <a href="/about/" class="px-5 py-2.5 border border-[var(--color-border)] rounded-lg text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:border-[var(--color-text-muted)] transition-all">About Me</a>
+      <div data-animate data-animate-delay="240" class="flex flex-wrap gap-4">
+        <a href="/research/" class="btn-primary">Read Research <span class="opacity-50">→</span></a>
+        <a href="/about/" class="btn-ghost">About</a>
       </div>
     </div>
-    {/* Bottom gradient fade */}
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--color-bg)] to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--color-bg)] to-transparent"></div>
   </section>
 
-  {/* Focus areas */}
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
-    <h2 data-animate class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-widest mb-8">What I research</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  {/* ─── What I research ─── */}
+  <section class="max-w-4xl mx-auto px-6 sm:px-8 pb-24">
+    <div class="flex items-center gap-4 mb-10">
+      <h2 data-animate class="section-label">What I research</h2>
+      <div data-animate class="flex-1 h-px bg-[var(--color-border)]"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       {[
-        { t: 'LLM Vulnerabilities', d: 'Prompt injection, jailbreaks, output manipulation, and data extraction from large language models.' },
-        { t: 'Agent Exploitation', d: 'Breaking tool-use chains, MCP servers, and autonomous AI agents.' },
-        { t: 'Adversarial ML', d: 'Adversarial attacks on models — evasion, poisoning, model theft.' },
-        { t: 'Web & API Security', d: 'Traditional pentesting — OWASP Top 10, API abuse, auth bypass.' },
+        { icon: '01', t: 'LLM Vulnerabilities', d: 'Prompt injection, jailbreaks, output manipulation, and data extraction from large language models.' },
+        { icon: '02', t: 'Agent Exploitation', d: 'Breaking tool-use chains, MCP servers, and autonomous AI agents before they reach production.' },
+        { icon: '03', t: 'Adversarial ML', d: 'Evasion attacks, training data poisoning, model theft, and adversarial robustness testing.' },
+        { icon: '04', t: 'Web & API Security', d: 'OWASP Top 10, API abuse, auth bypass, SSRF — traditional pentesting across modern stacks.' },
       ].map((c, i) => (
-        <div data-animate data-animate-delay={i * 60} class="group p-5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent-dim)]/30 transition-all duration-300">
-          <h3 class="font-semibold text-sm mb-2 text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">{c.t}</h3>
-          <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">{c.d}</p>
+        <div data-animate data-animate-delay={i * 70} class="glow-card p-6 group">
+          <span class="text-xs text-[var(--color-accent)] opacity-40 font-mono">{c.icon}</span>
+          <h3 class="font-semibold text-sm mt-3 mb-3 text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-300">{c.t}</h3>
+          <p class="text-[13px] text-[var(--color-text-secondary)] leading-[1.7]">{c.d}</p>
         </div>
       ))}
     </div>
   </section>
 
-  {/* Latest research */}
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 pb-24">
-    <div class="flex items-baseline justify-between mb-8">
-      <h2 data-animate class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-widest">Latest Research</h2>
-      <a data-animate href="/research/" class="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">View all →</a>
+  {/* ─── Latest Research ─── */}
+  <section class="max-w-4xl mx-auto px-6 sm:px-8 pb-32">
+    <div class="flex items-center gap-4 mb-10">
+      <h2 data-animate class="section-label">Latest Research</h2>
+      <div data-animate class="flex-1 h-px bg-[var(--color-border)]"></div>
+      <a data-animate href="/research/" class="section-label hover:text-[var(--color-accent)] transition-colors">View all →</a>
     </div>
     {posts.length === 0 ? (
-      <div data-animate class="rounded-lg border border-[var(--color-border)] p-8 text-center">
-        <p class="text-[var(--color-text-secondary)] text-sm mb-2">First research post coming soon.</p>
+      <div data-animate class="glow-card p-10 text-center">
+        <p class="text-[var(--color-text-secondary)] text-sm mb-3">First research post coming soon.</p>
         <p class="text-xs text-[var(--color-text-muted)]">Subscribe via <a href="/index.xml" class="text-[var(--color-accent)] hover:underline">RSS</a> to get notified.</p>
       </div>
     ) : (
-      <div class="space-y-0">
+      <div>
         {posts.map((post, i) => (
           <a data-animate data-animate-delay={i * 50} href={`/research/${post.id}/`}
-             class="flex items-baseline gap-4 py-4 border-b border-[var(--color-border)] last:border-b-0 hover:text-[var(--color-accent)] transition-colors group">
-            <time class="text-xs text-[var(--color-text-muted)] shrink-0 tabular-nums">
+             class="group flex items-baseline gap-5 py-5 border-b border-[var(--color-border-subtle)] last:border-b-0 transition-colors hover:border-[var(--color-border)]">
+            <time class="text-xs text-[var(--color-text-muted)] shrink-0 tabular-nums w-16">
               {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
             </time>
-            <span class="text-sm group-hover:underline underline-offset-4">{post.data.title}</span>
+            <span class="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text)] transition-colors">{post.data.title}</span>
+            <span class="ml-auto text-xs text-[var(--color-text-muted)] opacity-0 group-hover:opacity-100 transition-opacity shrink-0">Read →</span>
             {post.data.severity && (
               <span class:list={[
-                "ml-auto text-xs px-2 py-0.5 rounded-full shrink-0",
-                post.data.severity === 'critical' && "text-[#ff3333] bg-[#ff3333]/10",
-                post.data.severity === 'high' && "text-[#ff8833] bg-[#ff8833]/10",
-                post.data.severity === 'medium' && "text-[#ffcc00] bg-[#ffcc00]/10",
-                post.data.severity === 'low' && "text-[var(--color-accent)] bg-[var(--color-accent)]/10",
+                "text-xs px-2 py-0.5 rounded-full shrink-0",
+                post.data.severity === 'critical' && "text-[#ff3333] bg-[#ff3333]/8",
+                post.data.severity === 'high' && "text-[#ff8833] bg-[#ff8833]/8",
+                post.data.severity === 'medium' && "text-[#eab308] bg-[#eab308]/8",
+                post.data.severity === 'low' && "text-[var(--color-accent)] bg-[var(--color-accent)]/8",
                 post.data.severity === 'info' && "text-[var(--color-text-muted)] bg-[var(--color-surface)]",
               ]}>{post.data.severity}</span>
             )}

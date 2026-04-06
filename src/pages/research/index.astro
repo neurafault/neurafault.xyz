@@ -6,36 +6,37 @@ const posts = (await getCollection('research', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <Base title="Research" description="AI security research, vulnerability writeups, and adversarial analysis.">
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-    <h1 data-animate class="text-2xl sm:text-3xl font-bold tracking-tight mb-2">Research</h1>
-    <p data-animate data-animate-delay="100" class="text-[var(--color-text-secondary)] text-sm mb-10">
+  <section class="max-w-4xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
+    <h1 data-animate class="text-3xl sm:text-4xl font-bold tracking-[-0.03em] mb-4">Research</h1>
+    <p data-animate data-animate-delay="80" class="text-[var(--color-text-secondary)] text-[15px] mb-12 max-w-lg">
       Vulnerability writeups, CVE breakdowns, and adversarial research.
     </p>
 
     {posts.length === 0 ? (
-      <div data-animate data-animate-delay="200" class="border border-[var(--color-border)] rounded p-6 text-center space-y-3">
-        <p class="text-[var(--color-text-muted)] text-sm">No research published yet.</p>
+      <div data-animate data-animate-delay="160" class="glow-card p-10 text-center">
+        <p class="text-[var(--color-text-secondary)] text-sm mb-3">First research post coming soon.</p>
         <p class="text-xs text-[var(--color-text-muted)]">
-          Subscribe via <a href="/index.xml" class="text-[var(--color-accent)]">RSS</a> to get notified.
+          Subscribe via <a href="/index.xml" class="text-[var(--color-accent)] hover:underline">RSS</a> to get notified.
         </p>
       </div>
     ) : (
-      <div class="space-y-1">
+      <div>
         {posts.map((post, i) => (
-          <a data-animate data-animate-delay={100 + i * 60} href={`/research/${post.id}/`}
-             class="flex items-baseline gap-4 py-3 border-b border-[var(--color-border)] hover:text-[var(--color-link)] transition-colors group">
-            <time class="text-xs text-[var(--color-text-muted)] shrink-0">
+          <a data-animate data-animate-delay={80 + i * 50} href={`/research/${post.id}/`}
+             class="group flex items-baseline gap-5 py-5 border-b border-[var(--color-border-subtle)] last:border-b-0 transition-colors hover:border-[var(--color-border)]">
+            <time class="text-xs text-[var(--color-text-muted)] shrink-0 tabular-nums w-24">
               {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
             </time>
-            <span class="text-sm font-medium group-hover:underline underline-offset-2">{post.data.title}</span>
+            <span class="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text)] transition-colors">{post.data.title}</span>
+            <span class="ml-auto text-xs text-[var(--color-text-muted)] opacity-0 group-hover:opacity-100 transition-opacity shrink-0">Read →</span>
             {post.data.severity && (
               <span class:list={[
-                "ml-auto text-xs px-1.5 py-0.5 rounded shrink-0",
-                post.data.severity === 'critical' && "text-[#ff3333] border border-[#ff3333]/30",
-                post.data.severity === 'high' && "text-[#ff8833] border border-[#ff8833]/30",
-                post.data.severity === 'medium' && "text-[#ffcc00] border border-[#ffcc00]/30",
-                post.data.severity === 'low' && "text-[var(--color-accent)] border border-[var(--color-accent)]/30",
-                post.data.severity === 'info' && "text-[var(--color-text-muted)] border border-[var(--color-border)]",
+                "text-xs px-2 py-0.5 rounded-full shrink-0",
+                post.data.severity === 'critical' && "text-[#ff3333] bg-[#ff3333]/8",
+                post.data.severity === 'high' && "text-[#ff8833] bg-[#ff8833]/8",
+                post.data.severity === 'medium' && "text-[#eab308] bg-[#eab308]/8",
+                post.data.severity === 'low' && "text-[var(--color-accent)] bg-[var(--color-accent)]/8",
+                post.data.severity === 'info' && "text-[var(--color-text-muted)] bg-[var(--color-surface)]",
               ]}>{post.data.severity}</span>
             )}
           </a>

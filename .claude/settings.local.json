@@ -42,7 +42,8 @@
       "Bash(node -e \"const sharp = require\\('sharp'\\); sharp\\('quartz/static/icon.png'\\).metadata\\(\\).then\\(m => console.log\\(m.width, m.height, m.format\\)\\)\")",
       "Bash(cp c:/Users/hyrahmo/Documents/neurafault/public/favicon.svg c:/Users/hyrahmo/Documents/neurafault-docs/quartz/static/favicon.svg)",
       "Bash(cp c:/Users/hyrahmo/Documents/neurafault/public/og-docs.png c:/Users/hyrahmo/Documents/neurafault-docs/quartz/static/og-image.png)",
-      "Bash(node -e \"const sharp=require\\('sharp'\\);const fs=require\\('fs'\\);sharp\\(fs.readFileSync\\('public/favicon.svg'\\)\\).resize\\(48,48,{kernel:'lanczos3'}\\).png\\({quality:100}\\).toFile\\('../neurafault-docs/quartz/static/icon.png'\\).then\\(\\(\\)=>console.log\\('done'\\)\\)\")"
+      "Bash(node -e \"const sharp=require\\('sharp'\\);const fs=require\\('fs'\\);sharp\\(fs.readFileSync\\('public/favicon.svg'\\)\\).resize\\(48,48,{kernel:'lanczos3'}\\).png\\({quality:100}\\).toFile\\('../neurafault-docs/quartz/static/icon.png'\\).then\\(\\(\\)=>console.log\\('done'\\)\\)\")",
+      "Bash(node scripts/generate-social.mjs)"
     ],
     "additionalDirectories": [
       "C:\\Users\\hyrahmo\\Documents\\neurafault\\kb\\.git",

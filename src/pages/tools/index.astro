@@ -3,42 +3,41 @@ import Base from '../../layouts/Base.astro';
 import { tools } from '../../data/tools';
 
 const statusColors: Record<string, string> = {
-  'released': 'text-[var(--color-accent)] border-[var(--color-accent)]/30',
-  'beta': 'text-[#ffcc00] border-[#ffcc00]/30',
-  'in-development': 'text-[#ff8833] border-[#ff8833]/30',
-  'planned': 'text-[var(--color-text-muted)] border-[var(--color-border)]',
+  'released': 'text-[var(--color-accent)] bg-[var(--color-accent)]/8',
+  'beta': 'text-[#eab308] bg-[#eab308]/8',
+  'in-development': 'text-[#ff8833] bg-[#ff8833]/8',
+  'planned': 'text-[var(--color-text-muted)] bg-[var(--color-surface)]',
 };
 ---
 <Base title="Tools" description="Open-source AI security tools by Neurafault.">
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-    <h1 data-animate class="text-2xl sm:text-3xl font-bold tracking-tight mb-2">Tools</h1>
-    <p data-animate data-animate-delay="100" class="text-[var(--color-text-secondary)] text-sm mb-10">
+  <section class="max-w-4xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
+    <h1 data-animate class="text-3xl sm:text-4xl font-bold tracking-[-0.03em] mb-4">Tools</h1>
+    <p data-animate data-animate-delay="80" class="text-[var(--color-text-secondary)] text-[15px] mb-12 max-w-lg">
       Open-source tools for AI security research and testing.
     </p>
 
     {tools.length === 0 ? (
-      <div data-animate data-animate-delay="200" class="border border-[var(--color-border)] rounded p-6 text-center space-y-3">
-        <p class="text-[var(--color-text-muted)] text-sm">no releases yet</p>
+      <div data-animate data-animate-delay="160" class="glow-card p-10 text-center">
+        <p class="text-[var(--color-text-secondary)] text-sm mb-3">No releases yet.</p>
         <p class="text-xs text-[var(--color-text-muted)]">
-          Tools are in development. Star <a href="https://github.com/neurafault" class="text-[var(--color-accent)]">GitHub</a> to get notified.
+          Star <a href="https://github.com/neurafault" class="text-[var(--color-accent)] hover:underline">GitHub</a> to get notified.
         </p>
       </div>
     ) : (
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {tools.map((tool, i) => (
-          <div data-animate data-animate-delay={100 + i * 80}
-               class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded hover:border-[var(--color-text-muted)] transition-all">
-            <div class="flex items-center gap-2 mb-2">
-              <h2 class="font-semibold text-sm text-[var(--color-accent)]">{tool.title}</h2>
-              <span class={`ml-auto text-xs px-1.5 py-0.5 rounded border ${statusColors[tool.status]}`}>{tool.status}</span>
+          <div data-animate data-animate-delay={80 + i * 70} class="glow-card p-6 group">
+            <div class="flex items-center gap-3 mb-3">
+              <h2 class="font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">{tool.title}</h2>
+              <span class={`ml-auto text-xs px-2 py-0.5 rounded-full ${statusColors[tool.status]}`}>{tool.status}</span>
             </div>
-            <p class="text-xs text-[var(--color-text-secondary)] mb-3">{tool.description}</p>
+            <p class="text-[13px] text-[var(--color-text-secondary)] leading-[1.7] mb-4">{tool.description}</p>
             <div class="flex items-center gap-3">
               {tool.tags.map(tag => (
                 <span class="text-xs text-[var(--color-text-muted)]">#{tag}</span>
               ))}
               {tool.github && (
-                <a href={tool.github} target="_blank" rel="noopener" class="ml-auto text-xs text-[var(--color-accent)] hover:underline">github ↗</a>
+                <a href={tool.github} target="_blank" rel="noopener" class="ml-auto text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">github ↗</a>
               )}
             </div>
           </div>
