@@ -1,4 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#0a0a0a"/>
-  <text x="16" y="23" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#00ff88">N</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="top"><rect x="0" y="0" width="512" height="249"/></clipPath>
+    <clipPath id="bottom"><rect x="0" y="263" width="512" height="249"/></clipPath>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="#0a0a0a"/>
+
+  <!-- N top half — shifted left 6px -->
+  <g clip-path="url(#top)" filter="url(#glow)">
+    <text x="250" y="358" text-anchor="middle"
+          font-family="'Courier New',monospace" font-size="340" font-weight="bold"
+          fill="#00ff88">N</text>
+  </g>
+
+  <!-- N bottom half — shifted right 6px -->
+  <g clip-path="url(#bottom)" filter="url(#glow)">
+    <text x="262" y="358" text-anchor="middle"
+          font-family="'Courier New',monospace" font-size="340" font-weight="bold"
+          fill="#00ff88">N</text>
+  </g>
+
+  <!-- Fault line -->
+  <line x1="80" y1="256" x2="432" y2="256" stroke="#00ff88" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- Glitch artifacts -->
+  <rect x="340" y="247" width="52" height="3" rx="1" fill="#00ff88" opacity="0.35"/>
+  <rect x="120" y="262" width="36" height="2" rx="1" fill="#00ff88" opacity="0.25"/>
+  <rect x="370" y="262" width="24" height="2" rx="1" fill="#00ff88" opacity="0.2"/>
 </svg>

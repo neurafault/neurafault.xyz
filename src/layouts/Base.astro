@@ -25,12 +25,12 @@ const {
   noindex = false,
 } = Astro.props;
 
-const defaultDesc = 'Independent Security Research Lab. Pentesting, AI security, and offensive research. Breaking AI before it breaks you.';
+const defaultDesc = 'Independent AI Security Research Lab — LLM vulnerability research, prompt injection, adversarial ML, pentesting, and offensive security tools. Breaking AI before it breaks you.';
 const desc = description || defaultDesc;
 const fullTitle = title === 'Neurafault' ? title : `${title} — Neurafault`;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ? new URL(image, Astro.site).href : undefined;
+const ogImage = new URL(image || '/og-default.png', Astro.site).href;
 const path = Astro.url.pathname;
 ---
 <!doctype html>
@@ -48,7 +48,11 @@ const path = Astro.url.pathname;
   ) : (
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   )}
-  {tags.length > 0 && <meta name="keywords" content={tags.join(', ')} />}
+  {tags.length > 0 ? (
+    <meta name="keywords" content={tags.join(', ')} />
+  ) : (
+    <meta name="keywords" content="AI security, LLM vulnerabilities, prompt injection, adversarial ML, pentesting, offensive security, OWASP LLM Top 10, AI red teaming, vulnerability research" />
+  )}
 
   <link rel="canonical" href={canonicalURL.href} />
 
@@ -59,23 +63,27 @@ const path = Astro.url.pathname;
   <meta property="og:description" content={desc} />
   <meta property="og:site_name" content="Neurafault" />
   <meta property="og:locale" content="en_US" />
-  {ogImage && <meta property="og:image" content={ogImage} />}
-  {ogImage && <meta property="og:image:width" content="1200" />}
-  {ogImage && <meta property="og:image:height" content="630" />}
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   {type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
   {type === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
   {type === 'article' && tags.map(tag => <meta property="article:tag" content={tag} />)}
 
   {/* Twitter */}
-  <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@neurafault" />
   <meta name="twitter:creator" content="@neurafault" />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={desc} />
-  {ogImage && <meta name="twitter:image" content={ogImage} />}
+  <meta name="twitter:image" content={ogImage} />
 
   {/* Favicon */}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   {/* RSS */}
   <link rel="alternate" type="application/rss+xml" title="Neurafault RSS" href="/index.xml" />
@@ -98,7 +106,9 @@ const path = Astro.url.pathname;
         "https://github.com/neurafault",
         "https://x.com/neurafault",
         "https://github.com/hyrahmo",
-        "https://x.com/hyrahmo"
+        "https://x.com/hyrahmo",
+        "https://youtube.com/@neurafault",
+        "https://linkedin.com/in/hyrahmo"
       ]
     }
   })} />
@@ -119,7 +129,17 @@ const path = Astro.url.pathname;
       },
       "sameAs": [
         "https://github.com/neurafault",
-        "https://x.com/neurafault"
+        "https://x.com/neurafault",
+        "https://youtube.com/@neurafault",
+        "https://linkedin.com/in/hyrahmo"
+      ],
+      "knowsAbout": [
+        "AI Security",
+        "LLM Vulnerabilities",
+        "Prompt Injection",
+        "Adversarial Machine Learning",
+        "Penetration Testing",
+        "OWASP LLM Top 10"
       ]
     })} />
   )}
