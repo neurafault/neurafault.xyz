@@ -1,52 +1,61 @@
 ---
 import Base from '../layouts/Base.astro';
-import CopyLink from '../components/CopyLink.astro';
 ---
-<Base title="About" description="About Neurafault — Independent AI Security Research Lab.">
+<Base title="About" description="About Neurafault — AI security research by Dima (@hyrahmo).">
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-    <h1 data-animate class="text-2xl sm:text-3xl font-bold tracking-tight mb-8">About</h1>
+    <h1 data-animate class="text-2xl sm:text-3xl font-bold tracking-tight mb-10">About</h1>
 
-    <div data-animate data-animate-delay="100" class="space-y-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+    <div data-animate data-animate-delay="80" class="space-y-5 text-sm text-[var(--color-text-secondary)] leading-relaxed">
       <p>
-        <span class="text-[var(--color-text)] font-semibold">Neurafault</span> is an independent security research lab
-        focused on offensive security — from AI systems (LLMs, agents, multimodal models) to web applications and APIs.
+        I'm <a href="https://hyrahmo.com" class="text-[var(--color-accent)] hover:underline font-medium">Dima</a> — security researcher focused on AI systems.
+        <span class="text-[var(--color-text)] font-semibold">Neurafault</span> is where I publish my research, tools, and writeups.
       </p>
       <p>
-        We do pentesting, vulnerability research, and build open-source security tools.
-        The work sits at the intersection of mathematics, programming, AI, and cybersecurity.
+        I break LLMs, agents, and multimodal models. I also do traditional pentesting — web apps, APIs, infrastructure.
+        The goal is to find the gaps before attackers do.
       </p>
       <p>
-        As AI systems are deployed into production at scale, the attack surface grows exponentially —
-        and most teams aren't ready. We help find the gaps before attackers do.
+        My background is at the intersection of math, programming, and AI.
+        I build with AI agents daily — which gives me an unfair advantage in knowing where they're weak.
       </p>
     </div>
 
-    <div data-animate data-animate-delay="200" class="border border-[var(--color-border)] rounded p-5 mt-10 space-y-3 text-sm">
-      <h2 class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Operator</h2>
-      <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
-        <span class="text-[var(--color-text-muted)]">Name</span>
-        <span>Dima</span>
-        <span class="text-[var(--color-text-muted)]">Handle</span>
-        <a href="https://hyrahmo.com" class="text-[var(--color-accent)] hover:underline">@hyrahmo</a>
-        <span class="text-[var(--color-text-muted)]">Role</span>
-        <span>Founder, Researcher & Pentester</span>
-        <span class="text-[var(--color-text-muted)]">Focus</span>
-        <span>AI security, pentesting, offensive security</span>
+    <div data-animate data-animate-delay="160" class="mt-12">
+      <h2 class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-widest mb-6">Focus</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        {[
+          'Prompt Injection',
+          'LLM Jailbreaks',
+          'Agent Exploitation',
+          'Adversarial ML',
+          'OWASP LLM Top 10',
+          'Web & API Pentesting',
+        ].map((item, i) => (
+          <div class="text-xs text-[var(--color-text-secondary)] py-2 px-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]">{item}</div>
+        ))}
       </div>
     </div>
 
-    <div data-animate data-animate-delay="300" class="mt-10">
-      <h2 class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Contact</h2>
-      <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm">
-        <span class="text-[var(--color-text-muted)]">Email</span>
-        <a href="mailto:dima@aetlas.pro" class="text-[var(--color-accent)] hover:underline">dima@aetlas.pro</a>
-        <span class="text-[var(--color-text-muted)]">GitHub</span>
-        <a href="https://github.com/neurafault" class="text-[var(--color-accent)] hover:underline">github.com/neurafault</a>
-        <span class="text-[var(--color-text-muted)]">X</span>
-        <a href="https://x.com/neurafault" class="text-[var(--color-accent)] hover:underline">@neurafault</a>
+    <div data-animate data-animate-delay="240" class="mt-12">
+      <h2 class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-widest mb-6">Contact</h2>
+      <div class="space-y-3 text-sm">
+        <a href="mailto:dima@aetlas.pro" class="flex items-center gap-3 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors">
+          <span class="text-[var(--color-text-muted)] w-16 shrink-0">Email</span>
+          <span>dima@aetlas.pro</span>
+        </a>
+        <a href="https://github.com/neurafault" class="flex items-center gap-3 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors">
+          <span class="text-[var(--color-text-muted)] w-16 shrink-0">GitHub</span>
+          <span>neurafault</span>
+        </a>
+        <a href="https://x.com/neurafault" class="flex items-center gap-3 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors">
+          <span class="text-[var(--color-text-muted)] w-16 shrink-0">X</span>
+          <span>@neurafault</span>
+        </a>
+        <a href="https://youtube.com/@neurafault" class="flex items-center gap-3 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors">
+          <span class="text-[var(--color-text-muted)] w-16 shrink-0">YouTube</span>
+          <span>@neurafault</span>
+        </a>
       </div>
     </div>
-
-    <CopyLink />
   </section>
 </Base>
