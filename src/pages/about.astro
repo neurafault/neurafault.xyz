@@ -8,7 +8,7 @@ import CopyLink from '../components/CopyLink.astro';
 
     <div data-animate data-animate-delay="100" class="space-y-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">
       <p>
-        <span class="text-[var(--color-accent)] font-bold">Neurafault</span> is an independent security research lab
+        <span class="text-[var(--color-text)] font-semibold">Neurafault</span> is an independent security research lab
         focused on offensive security — from AI systems (LLMs, agents, multimodal models) to web applications and APIs.
       </p>
       <p>
@@ -21,20 +21,29 @@ import CopyLink from '../components/CopyLink.astro';
       </p>
     </div>
 
-    <div data-animate data-animate-delay="200" class="border border-[var(--color-border)] rounded p-4 mt-8 space-y-2 text-sm">
-      <p class="text-[var(--color-text-muted)] text-xs mb-3">$ cat ./operator</p>
-      <p><span class="text-[var(--color-text-muted)]">name:</span> Dima</p>
-      <p><span class="text-[var(--color-text-muted)]">handle:</span> <a href="https://hyrahmo.com" class="text-[var(--color-accent)]">@hyrahmo</a></p>
-      <p><span class="text-[var(--color-text-muted)]">role:</span> Founder, Researcher & Pentester</p>
-      <p><span class="text-[var(--color-text-muted)]">focus:</span> AI security, pentesting, offensive security</p>
+    <div data-animate data-animate-delay="200" class="border border-[var(--color-border)] rounded p-5 mt-10 space-y-3 text-sm">
+      <h2 class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Operator</h2>
+      <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
+        <span class="text-[var(--color-text-muted)]">Name</span>
+        <span>Dima</span>
+        <span class="text-[var(--color-text-muted)]">Handle</span>
+        <a href="https://hyrahmo.com" class="text-[var(--color-accent)] hover:underline">@hyrahmo</a>
+        <span class="text-[var(--color-text-muted)]">Role</span>
+        <span>Founder, Researcher & Pentester</span>
+        <span class="text-[var(--color-text-muted)]">Focus</span>
+        <span>AI security, pentesting, offensive security</span>
+      </div>
     </div>
 
-    <div data-animate data-animate-delay="300" class="mt-8 space-y-2 text-sm">
-      <p class="text-[var(--color-text-muted)] text-xs">$ cat ./contact</p>
-      <div class="space-y-1">
-        <p><span class="text-[var(--color-text-muted)] mr-2">email:</span> <a href="mailto:dima@aetlas.pro" class="text-[var(--color-accent)]">dima@aetlas.pro</a></p>
-        <p><span class="text-[var(--color-text-muted)] mr-2">github:</span> <a href="https://github.com/neurafault" class="text-[var(--color-accent)]">github.com/neurafault</a></p>
-        <p><span class="text-[var(--color-text-muted)] mr-2">x.com:</span> <a href="https://x.com/neurafault" class="text-[var(--color-accent)]">@neurafault</a></p>
+    <div data-animate data-animate-delay="300" class="mt-10">
+      <h2 class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Contact</h2>
+      <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm">
+        <span class="text-[var(--color-text-muted)]">Email</span>
+        <a href="mailto:dima@aetlas.pro" class="text-[var(--color-accent)] hover:underline">dima@aetlas.pro</a>
+        <span class="text-[var(--color-text-muted)]">GitHub</span>
+        <a href="https://github.com/neurafault" class="text-[var(--color-accent)] hover:underline">github.com/neurafault</a>
+        <span class="text-[var(--color-text-muted)]">X</span>
+        <a href="https://x.com/neurafault" class="text-[var(--color-accent)] hover:underline">@neurafault</a>
       </div>
     </div>
 

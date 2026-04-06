@@ -12,10 +12,10 @@
   --color-text: #e0e0e0;
   --color-text-secondary: #a0a0a0;
   --color-text-muted: #555555;
-  --color-accent: #00ff88;
-  --color-accent-dim: #00cc6a;
+  --color-accent: #4ade80;
+  --color-accent-dim: #22c55e;
   --color-border: #1a1a1a;
-  --color-link: #00ff88;
+  --color-link: #4ade80;
   --color-danger: #ff3333;
 }
 
@@ -38,26 +38,10 @@ body {
   min-height: 100dvh;
 }
 
-/* Scanline overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.015;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 1px,
-    rgba(0, 255, 136, 0.03) 1px,
-    rgba(0, 255, 136, 0.03) 2px
-  );
-}
 
 /* === Selection === */
 ::selection {
-  background: rgba(0, 255, 136, 0.25);
+  background: rgba(74, 222, 128, 0.25);
   color: #fff;
 }
 

@@ -8,63 +8,67 @@ const posts = (await getCollection('research', ({ data }) => !data.draft))
 ---
 <Base title="Neurafault" description="Independent AI Security Research Lab. Breaking AI before it breaks you.">
   {/* Hero */}
-  <section class="min-h-[85vh] flex items-center">
+  <section class="min-h-[80vh] flex items-center">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 py-20 sm:py-32">
-      <div data-animate class="flex items-center gap-3 mb-4">
-        <span class="text-[var(--color-text-muted)] text-xs">$ whoami</span>
-      </div>
-      <h1 data-animate data-animate-delay="100" class="text-[clamp(2rem,6vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-4">
-        Breaking AI before<br class="hidden sm:block"/> it breaks you.
+      <h1 data-animate class="text-[clamp(2rem,6vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-6">
+        AI Security<br class="hidden sm:block"/> Research Lab
       </h1>
-      <p data-animate data-animate-delay="200" class="text-[var(--color-text-secondary)] max-w-md mb-8 text-sm">
-        Independent AI Security Research Lab. Pentesting, vulnerability research, and offensive security across AI and traditional systems.
+      <p data-animate data-animate-delay="100" class="text-[var(--color-text-secondary)] max-w-lg mb-8 text-sm leading-relaxed">
+        We find vulnerabilities in AI systems — LLMs, agents, multimodal models — before attackers do.
+        Pentesting, research, and open-source security tools.
       </p>
-      <div data-animate data-animate-delay="300" class="flex gap-3">
-        <a href="/research/" class="px-4 py-2 rounded text-sm font-medium hover:opacity-90 transition-all hover:-translate-y-0.5" style="background:var(--color-accent);color:var(--color-bg)">research</a>
-        <a href="/tools/" class="px-4 py-2 border border-[var(--color-border)] rounded text-sm text-[var(--color-text)] hover:border-[var(--color-text-muted)] transition-all hover:-translate-y-0.5">tools</a>
-        <a href="https://docs.neurafault.xyz" target="_blank" rel="noopener" class="px-4 py-2 border border-[var(--color-border)] rounded text-sm text-[var(--color-text)] hover:border-[var(--color-text-muted)] transition-all hover:-translate-y-0.5">docs ↗</a>
+      <div data-animate data-animate-delay="200" class="flex gap-3">
+        <a href="/research/" class="px-4 py-2 rounded text-sm font-medium hover:opacity-90 transition-all" style="background:var(--color-accent);color:var(--color-bg)">Research</a>
+        <a href="/tools/" class="px-4 py-2 border border-[var(--color-border)] rounded text-sm text-[var(--color-text)] hover:border-[var(--color-text-muted)] transition-colors">Tools</a>
+        <a href="https://docs.neurafault.xyz" target="_blank" rel="noopener" class="px-4 py-2 border border-[var(--color-border)] rounded text-sm text-[var(--color-text)] hover:border-[var(--color-text-muted)] transition-colors">Docs ↗</a>
       </div>
     </div>
   </section>
 
-  {/* Focus areas */}
+  {/* What we do */}
   <section class="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <h2 data-animate class="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-6">What we do</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {[
-        { t: 'Pentesting', d: 'Break AI & web systems.' },
-        { t: 'Research', d: 'Document findings.' },
-        { t: 'Tools', d: 'Open-source security tools.' },
+        { t: 'Pentesting', d: 'Security testing of AI-powered applications, APIs, and web systems.' },
+        { t: 'Research', d: 'Vulnerability research, CVE analysis, and adversarial ML studies.' },
+        { t: 'Tools', d: 'Open-source tools for AI security testing and red teaming.' },
       ].map((c, i) => (
-        <div data-animate data-animate-delay={i * 80} class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded hover:border-[var(--color-text-muted)] transition-all hover:-translate-y-0.5">
-          <h3 class="font-semibold mb-1 text-[var(--color-accent)] text-sm">{c.t}</h3>
-          <p class="text-xs text-[var(--color-text-secondary)]">{c.d}</p>
+        <div data-animate data-animate-delay={i * 80} class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+          <h3 class="font-semibold mb-2 text-sm">{c.t}</h3>
+          <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">{c.d}</p>
         </div>
       ))}
     </div>
   </section>
 
-  {/* Targets */}
+  {/* Focus areas */}
   <section class="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
-    <div data-animate class="border border-[var(--color-border)] rounded p-5 space-y-2 text-sm">
-      <p class="text-[var(--color-text-muted)] text-xs mb-3">$ cat ./targets</p>
-      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Prompt injection & jailbreaks</p>
-      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>OWASP LLM Top 10 vectors</p>
-      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Agent & tool-use exploitation</p>
-      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Web app & API pentesting</p>
-      <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Adversarial ML & data extraction</p>
+    <h2 data-animate class="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-6">Focus areas</h2>
+    <div data-animate data-animate-delay="80" class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+      {[
+        'Prompt injection & jailbreaks',
+        'OWASP LLM Top 10 vectors',
+        'Agent & tool-use exploitation',
+        'Web app & API pentesting',
+        'Adversarial ML & data extraction',
+        'AI red teaming',
+      ].map(item => (
+        <p class="py-2 border-b border-[var(--color-border)] text-[var(--color-text-secondary)]">{item}</p>
+      ))}
     </div>
   </section>
 
   {/* Latest research */}
   <section class="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
-    <div class="flex items-baseline justify-between mb-5">
-      <h2 data-animate class="text-lg font-semibold tracking-tight">Latest Research</h2>
-      <a data-animate href="/research/" class="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">all →</a>
+    <div class="flex items-baseline justify-between mb-6">
+      <h2 data-animate class="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">Latest research</h2>
+      <a data-animate href="/research/" class="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">View all →</a>
     </div>
     {posts.length === 0 ? (
-      <div data-animate class="border border-[var(--color-border)] rounded p-5 text-center">
+      <div data-animate class="border border-[var(--color-border)] rounded p-6 text-center">
         <p class="text-[var(--color-text-muted)] text-sm">No research published yet.</p>
-        <p class="text-xs text-[var(--color-text-muted)] mt-2">First writeup coming soon. Subscribe via <a href="/index.xml" class="text-[var(--color-accent)]">RSS</a>.</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-2">Subscribe via <a href="/index.xml" class="text-[var(--color-accent)]">RSS</a> to get notified.</p>
       </div>
     ) : (
       <div class="space-y-1">

@@ -15,21 +15,21 @@
   <g clip-path="url(#top)" filter="url(#glow)">
     <text x="250" y="358" text-anchor="middle"
           font-family="'Courier New',monospace" font-size="340" font-weight="bold"
-          fill="#00ff88">N</text>
+          fill="#4ade80">N</text>
   </g>
 
   <!-- N bottom half — shifted right 6px -->
   <g clip-path="url(#bottom)" filter="url(#glow)">
     <text x="262" y="358" text-anchor="middle"
           font-family="'Courier New',monospace" font-size="340" font-weight="bold"
-          fill="#00ff88">N</text>
+          fill="#4ade80">N</text>
   </g>
 
   <!-- Fault line -->
-  <line x1="80" y1="256" x2="432" y2="256" stroke="#00ff88" stroke-width="1.5" opacity="0.25"/>
+  <line x1="80" y1="256" x2="432" y2="256" stroke="#4ade80" stroke-width="1.5" opacity="0.25"/>
 
   <!-- Glitch artifacts -->
-  <rect x="340" y="247" width="52" height="3" rx="1" fill="#00ff88" opacity="0.35"/>
-  <rect x="120" y="262" width="36" height="2" rx="1" fill="#00ff88" opacity="0.25"/>
-  <rect x="370" y="262" width="24" height="2" rx="1" fill="#00ff88" opacity="0.2"/>
+  <rect x="340" y="247" width="52" height="3" rx="1" fill="#4ade80" opacity="0.35"/>
+  <rect x="120" y="262" width="36" height="2" rx="1" fill="#4ade80" opacity="0.25"/>
+  <rect x="370" y="262" width="24" height="2" rx="1" fill="#4ade80" opacity="0.2"/>
 </svg>

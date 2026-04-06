@@ -13,17 +13,9 @@ const posts = (await getCollection('research', ({ data }) => !data.draft))
     </p>
 
     {posts.length === 0 ? (
-      <div data-animate data-animate-delay="200" class="border border-[var(--color-border)] rounded p-6 space-y-4">
-        <p class="text-[var(--color-text-muted)] text-sm text-center">directory is empty</p>
-        <div class="text-xs text-[var(--color-text-muted)] space-y-1">
-          <p class="text-[var(--color-text-muted)] text-xs mb-2">$ cat ./planned-topics</p>
-          <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>OWASP LLM Top 10 — deep dive series</p>
-          <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Prompt injection techniques & defenses</p>
-          <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>"How I broke X" — real case studies</p>
-          <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>CVE breakdowns for AI/ML systems</p>
-          <p><span class="text-[var(--color-accent)] mr-2">&gt;</span>Adversarial ML attack vectors</p>
-        </div>
-        <p class="text-xs text-[var(--color-text-muted)] text-center pt-2">
+      <div data-animate data-animate-delay="200" class="border border-[var(--color-border)] rounded p-6 text-center space-y-3">
+        <p class="text-[var(--color-text-muted)] text-sm">No research published yet.</p>
+        <p class="text-xs text-[var(--color-text-muted)]">
           Subscribe via <a href="/index.xml" class="text-[var(--color-accent)]">RSS</a> to get notified.
         </p>
       </div>

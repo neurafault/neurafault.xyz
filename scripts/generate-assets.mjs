@@ -25,7 +25,7 @@ await sharp(faviconSvg).resize(32, 32).png().toFile(resolve(pub, 'favicon-32.png
 // ── OG Banner — Main Site ─────────────────────────────────
 const W = 1200, H = 630;
 
-function createOgSvg({ title, subtitle, accent = '#00ff88' }) {
+function createOgSvg({ title, subtitle, accent = '#4ade80' }) {
   return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#0a0a0a"/>
   <!-- Border -->
